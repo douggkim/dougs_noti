@@ -9,25 +9,34 @@ from typing import List
 from twilio.rest import Client
 
 
-def send_text(account_sid:str, auth_token:str, from_number:str, to_number:str, text_body:str) -> None: 
+def send_text(account_sid: str, auth_token: str, from_number: str, to_number: str, text_body: str) -> None:
+    """account_sid : account id of twilio account. see the READ.MD on how you can get it 
+auth_token : authorization token for twilio services see the READ.MD on how you can get it 
+from_number : the number you will use to send the text. This should be provided by Twilio. Read the READ.MD for how you should get it 
+to_number : list of the numbers that will get the text 
+ex) '+142444444444'
+text_body : content of the text """
+    # Set up the credentials 
     account_sid = account_sid
     auth_token = auth_token
     client = Client(account_sid, auth_token)
 
+    # Send the message 
     message = client.messages.create(
-    from_=from_number,
-    body=text_body,
-    to=to_number
+        from_=from_number,
+        body=text_body,
+        to=to_number
     )
 
-    print(message.sid)
+    print(f"message sent. message sid : {message.sid}")
 
-def send_email(sender_email: str, sender_password: str, to_email: List[str], smtp_server: str = None, smtp_port: str = None, file_loc: str = None, mail_body: str = 'this is message generated from send_alert module', mail_subject: str = f"{datetime.datetime.now()} alert sent by send_alert module") -> bool:
+
+def send_email(sender_email: str, sender_password: str, to_email: str, smtp_server: str = None, smtp_port: str = None, file_loc: str = None, mail_body: str = 'this is message generated from send_alert module', mail_subject: str = f"{datetime.datetime.now()} alert sent by send_alert module") -> bool:
     """
     sender_email : email you will use to send the alert\n
     sender_password : password for the email you will use to send the alert\n
     to_email : list of emails that will get the alert\n
-    ex) ['test1@gmail.com','test2@gmail.com']\n
+    ex) 'test2@gmail.com'\n
     smtp_server : smtp server for your sender email. If we have the smtp server of your email provider in our db, you might not need to input it  
     ex) gmail.com -> smtp.gmail.com
     smtp_port : smtp server for your sender email. If we have the smtp port of your email provider in our db, you might not need to input it 
@@ -80,7 +89,6 @@ def send_email(sender_email: str, sender_password: str, to_email: List[str], smt
             print("smtp_server and smtp_port was not found in our database. Please provide the server (eg. smtp.gmail.com) and the port (eg. 465)")
             print(e)
     sender_password = sender_password
-    
 
     # Recipient email
     to = to_email
@@ -89,7 +97,6 @@ def send_email(sender_email: str, sender_password: str, to_email: List[str], smt
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = COMMASPACE.join([to])
-    print(msg['To'])
     msg['Subject'] = mail_subject
 
     # Add message body
@@ -119,6 +126,3 @@ def send_email(sender_email: str, sender_password: str, to_email: List[str], smt
     except Exception as e:
         print("Error: unable to send email", e)
         return False
-
-
-

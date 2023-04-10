@@ -2,6 +2,8 @@ LICENSE
 README.md
 pyproject.toml
 setup.py
+dougs_noti/__init__.py
+dougs_noti/noti.py
 dougs_noti.egg-info/PKG-INFO
 dougs_noti.egg-info/SOURCES.txt
 dougs_noti.egg-info/dependency_links.txt

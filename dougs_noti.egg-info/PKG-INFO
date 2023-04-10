@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: dougs-noti
-Version: 0.1.0
-Summary: a notify the user thorough email or text message 
+Version: 0.3.5
+Summary: notify the user thorough email or text message 
 Home-page: https://github.com/dougieduk/dougs_noti
 Author: Doug Kim
 Author-email: slakingex@gmail.com

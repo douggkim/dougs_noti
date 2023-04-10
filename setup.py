@@ -2,17 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='dougs_noti',
-    version='0.1.0',
-    description='a notify the user thorough email or text message ',
+    version='0.3.6',
+    description='notify the user thorough email or text message ',
     author='Doug Kim',
     author_email='slakingex@gmail.com',
     url='https://github.com/dougieduk/dougs_noti',
     packages=find_packages(),
     install_requires=[
-        'email',
-        'smtplib',
-        'datetime',
-        'typing',
         'twilio'
     ],
     classifiers=[
