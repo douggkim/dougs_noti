@@ -108,8 +108,4 @@ def send_email(sender_email: str, sender_password: str, to_email: List[str], smt
         return False
 
 
-sender_email = os.environ.get("NAVER_MAIL")
-sender_password = os.environ.get("NAVER_PW")
 
-send_email(sender_email=sender_email, sender_password=sender_password, to_email='slakingex@gmail.com',
-           file_loc='part1.csv', mail_body='hello!', mail_subject='attachment part1.csv')
