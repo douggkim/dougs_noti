@@ -1,4 +1,9 @@
-# dougs_noti user manual
+# Why I created this
+I was tired of waiting for pipelines to finish, 
+refreshing the web browser, or looking at my log files.
+So I decided to create a toolkit for myself, 
+with which I could receive the progress of the pipelines through mails 
+or texts. 
 
 # Downloading the package
 
