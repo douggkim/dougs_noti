@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+dougs_noti.egg-info/PKG-INFO
+dougs_noti.egg-info/SOURCES.txt
+dougs_noti.egg-info/dependency_links.txt
+dougs_noti.egg-info/requires.txt
+dougs_noti.egg-info/top_level.txt

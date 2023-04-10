@@ -6,7 +6,21 @@ from email.utils import COMMASPACE
 from email import encoders
 import datetime
 from typing import List
+from twilio.rest import Client
 
+
+def send_text(account_sid:str, auth_token:str, from_number:str, to_number:str, text_body:str) -> None: 
+    account_sid = account_sid
+    auth_token = auth_token
+    client = Client(account_sid, auth_token)
+
+    message = client.messages.create(
+    from_=from_number,
+    body=text_body,
+    to=to_number
+    )
+
+    print(message.sid)
 
 def send_email(sender_email: str, sender_password: str, to_email: List[str], smtp_server: str = None, smtp_port: str = None, file_loc: str = None, mail_body: str = 'this is message generated from send_alert module', mail_subject: str = f"{datetime.datetime.now()} alert sent by send_alert module") -> bool:
     """
